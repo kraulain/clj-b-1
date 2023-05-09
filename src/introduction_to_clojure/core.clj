@@ -77,6 +77,7 @@
     (get info :usage)))
 
 (defn add
+  "Adds a given number of ingredients to the mixing bowl"
   ([ingredient]
    (add ingredient 1))
   ([ingredient amount]
