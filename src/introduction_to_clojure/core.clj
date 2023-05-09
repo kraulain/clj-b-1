@@ -1,7 +1,9 @@
 (ns introduction-to-clojure.core
   (:require [bakery.core :refer :all]))
 
-(defn error [& args]
+(defn error 
+  "prints out an error message with optional args" 
+  [& args] 
   (apply println args)
   :error)
 
@@ -76,13 +78,13 @@
 
 (defn add
   ([ingredient]
-    (add ingredient 1))
+   (add ingredient 1))
   ([ingredient amount]
-    (let [ingredient-type (usage-type ingredient)]
-      (if (contains? usage ingredient-type)
-        (let [f (get usage ingredient-type)]
-          (f ingredient amount))
-        (error "I do not know the ingredient" ingredient)))))
+   (let [ingredient-type (usage-type ingredient)]
+     (if (contains? usage ingredient-type)
+       (let [f (get usage ingredient-type)]
+         (f ingredient amount))
+       (error "I do not know the ingredient" ingredient)))))
 
 (def actions {:cool (fn [ingredients step]
                       (cool-pan))
@@ -96,8 +98,8 @@
                       (cond
                         (and (= 2 (count step))
                              (= :all (second step)))
-                          (doseq [kv ingredients]
-                            (add (first kv) (second kv)))
+                        (doseq [kv ingredients]
+                          (add (first kv) (second kv)))
                         (and (= 2 (count step))
                              (contains? ingredients (second step)))
                         (add (second step) (get ingredients (second step)))
@@ -126,17 +128,17 @@
 
 (defn fetch-ingredient
   ([ingredient]
-    (fetch-ingredient ingredient 1))
+   (fetch-ingredient ingredient 1))
   ([ingredient amount]
-    (let [ingredients (get baking :ingredients)
-          info (get ingredients ingredient)]
-      (if (contains? ingredients ingredient)
-        (do
-          (go-to (get info :storage))
-          (load-up-amount ingredient amount)
-          (go-to :prep-area)
-          (unload-amount ingredient amount))
-        (error "I don't know the ingredient" ingredient)))))
+   (let [ingredients (get baking :ingredients)
+         info (get ingredients ingredient)]
+     (if (contains? ingredients ingredient)
+       (do
+         (go-to (get info :storage))
+         (load-up-amount ingredient amount)
+         (go-to :prep-area)
+         (unload-amount ingredient amount))
+       (error "I don't know the ingredient" ingredient)))))
 
 (defn storage-location [ingredient]
   (let [ingredients (get baking :ingredients)
