@@ -7,6 +7,8 @@
   (apply println args)
   :error)
 
+;;recipes for how to bake various types items
+;;could be expanded by adding more recipes maps
 (def baking  {:recipes {:cake {:ingredients {:egg   2
                                              :flour 2
                                              :sugar 1
