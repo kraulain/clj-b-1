@@ -57,6 +57,8 @@
                             :cocoa {:storage :pantry
                                     :usage :scooped}}})
 
+
+;;Data used by dispatch function to know how to handle each type of ingredient
 (def usage {:squeezed (fn [ingredient amount]
                         (dotimes [i amount]
                           (grab ingredient)
