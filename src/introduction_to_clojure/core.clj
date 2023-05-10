@@ -83,6 +83,7 @@
         info (get ingredients ingredient)]
     (get info :usage)))
 
+
 (defn add
   "Adds a given number of ingredients to the mixing bowl"
   ([ingredient]
@@ -94,6 +95,8 @@
          (f ingredient amount))
        (error "I do not know the ingredient" ingredient)))))
 
+
+;;Map off actions one can perform when cooking a recipe
 (def actions {:cool (fn [ingredients step]
                       (cool-pan))
               :mix  (fn [ingredients step]
