@@ -75,7 +75,10 @@
                          (add-to-bowl))
                        (release))})
 
-(defn usage-type [ingredient]
+
+(defn usage-type
+  "Gets usage type for an ingredient out of the recipe map"
+  [ingredient]
   (let [ingredients (get baking :ingredients)
         info (get ingredients ingredient)]
     (get info :usage)))
