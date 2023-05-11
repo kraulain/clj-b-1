@@ -144,7 +144,10 @@
   (dotimes [i amount]
     (load-up ingredient)))
 
-(defn unload-amount [ingredient amount]
+
+(defn unload-amount 
+  "Fuction to upload an amount of ingredients from the bowl"
+  [ingredient amount]
   (dotimes [i amount]
     (unload ingredient)))
 
