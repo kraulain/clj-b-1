@@ -119,7 +119,10 @@
                         :else
                         (error "I don't know how to add" (second step) (get step 2))))})
 
-(defn perform [ingredients step]
+
+(defn perform 
+  "apply the actions defined at each step for the ingredients"
+  [ingredients step]
   (let [f (get actions (first step) (fn [ingredients step]
                                       (println "I do not know how to" (first step))))]
     (f ingredients step)))
