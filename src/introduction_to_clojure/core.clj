@@ -127,7 +127,9 @@
                                       (println "I do not know how to" (first step))))]
     (f ingredients step)))
 
-(defn bake-recipe [recipe]
+(defn bake-recipe 
+  "Takes a recipe and calls perform to apply each step"
+  [recipe]
   (last
     (for [step (get recipe :steps)]
       (perform (get recipe :ingredients) step))))
