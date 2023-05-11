@@ -127,6 +127,8 @@
                                       (println "I do not know how to" (first step))))]
     (f ingredients step)))
 
+
+
 (defn bake-recipe 
   "Takes a recipe and calls perform to apply each step"
   [recipe]
@@ -134,7 +136,11 @@
     (for [step (get recipe :steps)]
       (perform (get recipe :ingredients) step))))
 
-(defn load-up-amount [ingredient amount]
+
+
+(defn load-up-amount 
+  "Loads up the amount of ingredients into the bowl"
+  [ingredient amount]
   (dotimes [i amount]
     (load-up ingredient)))
 
