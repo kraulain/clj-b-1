@@ -128,14 +128,12 @@
     (f ingredients step)))
 
 
-
 (defn bake-recipe 
   "Takes a recipe and calls perform to apply each step"
   [recipe]
   (last
     (for [step (get recipe :steps)]
       (perform (get recipe :ingredients) step))))
-
 
 
 (defn load-up-amount 
@@ -150,6 +148,7 @@
   [ingredient amount]
   (dotimes [i amount]
     (unload ingredient)))
+
 
 (defn fetch-ingredient
   "Recursively fetches a given amount of ingredients from the appropriate storage"
@@ -166,12 +165,14 @@
          (unload-amount ingredient amount))
        (error "I don't know the ingredient" ingredient)))))
 
+
 (defn storage-location 
   "returns the type of storage where he given ingredient is found"
   [ingredient]
   (let [ingredients (get baking :ingredients)
         info (get ingredients ingredient)]
     (get info :storage)))
+
 
 (defn fetch-list 
   "given a list of ingredients, fetch the right amount of each ingredient"
@@ -183,10 +184,10 @@
       (go-to (first loc))
       (doseq [item-amount (second loc)]
         (load-up-amount (first item-amount) (second item-amount)))))
-
   (go-to :prep-area)
   (doseq [item-amount shopping]
     (unload-amount (first item-amount) (second item-amount))))
+
 
 (defn add-ingredients [a b]
   (merge-with + a b))
