@@ -152,6 +152,7 @@
     (unload ingredient)))
 
 (defn fetch-ingredient
+  "Recursively fetches a given amount of ingredients from the appropriate storage"
   ([ingredient]
    (fetch-ingredient ingredient 1))
   ([ingredient amount]
