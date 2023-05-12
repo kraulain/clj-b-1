@@ -166,7 +166,9 @@
          (unload-amount ingredient amount))
        (error "I don't know the ingredient" ingredient)))))
 
-(defn storage-location [ingredient]
+(defn storage-location 
+  "returns the type of storage where he given ingredient is found"
+  [ingredient]
   (let [ingredients (get baking :ingredients)
         info (get ingredients ingredient)]
     (get info :storage)))
