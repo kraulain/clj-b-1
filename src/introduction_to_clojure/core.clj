@@ -173,7 +173,9 @@
         info (get ingredients ingredient)]
     (get info :storage)))
 
-(defn fetch-list [shopping]
+(defn fetch-list 
+  "given a list of ingredients, fetch the right amount of each ingredient"
+  [shopping]
   (let [by-location (group-by (fn [item-amount]
                                 (storage-location (first item-amount)))
                               shopping)]
