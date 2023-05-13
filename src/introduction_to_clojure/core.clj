@@ -197,7 +197,9 @@
     (for [kv ingredients]
       [(first kv) (* n (second kv))])))
 
-(defn order->ingredients [order]
+(defn order->ingredients 
+  "takes an order and returns the total of all ingredients needed to make the order"
+  [order]
   (let [recipes (get baking :recipes)
         items (get order :items)]
     (reduce add-ingredients {}
