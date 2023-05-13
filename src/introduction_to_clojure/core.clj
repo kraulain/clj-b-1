@@ -217,11 +217,16 @@
     (for [order orders]
       (order->ingredients order))))
 
+
+
 (defn bake [item]
   (let [recipes (get baking :recipes)]
     (bake-recipe (get recipes item))))
 
-(defn day-at-the-bakery []
+
+(defn day-at-the-bakery 
+  "get all items from storage in a single trip then bake all of them"
+  []
   (let [orders (get-morning-orders-day3)
         ingredients (orders->ingredients orders)]
     (fetch-list ingredients)
