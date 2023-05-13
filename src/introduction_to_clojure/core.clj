@@ -197,6 +197,7 @@
     (for [kv ingredients]
       [(first kv) (* n (second kv))])))
 
+
 (defn order->ingredients 
   "takes an order and returns the total of all ingredients needed to make the order"
   [order]
@@ -208,7 +209,10 @@
                     ingredients (get recipe :ingredients)]
                 (multiply-ingredients (second kv) ingredients))))))
 
-(defn orders->ingredients [orders]
+
+(defn orders->ingredients 
+  "computes the total ingredients of all the orders in a given list of orders"
+  [orders]
   (reduce add-ingredients {}
     (for [order orders]
       (order->ingredients order))))
