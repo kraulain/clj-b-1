@@ -194,7 +194,9 @@
   [a b]
   (merge-with + a b))
 
-(defn multiply-ingredients [n ingredients]
+(defn multiply-ingredients 
+  "multiple the amounts of each ingredients required for an order, by the number of items ordered"
+  [n ingredients]
   (into {}
     (for [kv ingredients]
       [(first kv) (* n (second kv))])))
