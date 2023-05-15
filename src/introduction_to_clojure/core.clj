@@ -189,7 +189,9 @@
     (unload-amount (first item-amount) (second item-amount))))
 
 
-(defn add-ingredients [a b]
+(defn add-ingredients 
+  "Combine two lists of ingredients by adding their amounts"
+  [a b]
   (merge-with + a b))
 
 (defn multiply-ingredients [n ingredients]
